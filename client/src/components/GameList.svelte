@@ -13,6 +13,11 @@
     let loading = true;
     let error: string | null = null;
 
+    /**
+     * Fetch games data from the API endpoint.
+     * 
+     * @returns Promise<void> - Resolves when games are fetched and state is updated
+     */
     const fetchGames = async () => {
         loading = true;
         try {
