@@ -6,7 +6,12 @@ from models import db, Category, Game, Publisher
 from utils.database import get_connection_string
 
 def create_app():
-    """Create and configure Flask app for database operations"""
+    """
+    Create and configure Flask app for database operations.
+    
+    Returns:
+        Flask: Configured Flask application instance
+    """
     app = Flask(__name__)
 
     # Configure and initialize the database
@@ -21,7 +26,12 @@ def create_app():
     return app
 
 def create_games():
-    """Create games, categories and publishers from CSV data for crowd funding platform"""
+    """
+    Create games, categories and publishers from CSV data for crowd funding platform.
+    
+    Reads game data from CSV file and populates the database with games,
+    their associated categories and publishers.
+    """
     app = create_app()
     
     with app.app_context():
@@ -84,6 +94,11 @@ def create_games():
         print(f"Added {game_count} games with {len(categories)} categories and {len(publishers)} publishers")
 
 def seed_database():
+    """
+    Main function to seed the database with initial data.
+    
+    Entry point for database seeding operations.
+    """
     create_games()
 
 if __name__ == '__main__':
